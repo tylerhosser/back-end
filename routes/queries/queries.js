@@ -27,4 +27,15 @@ router.post('/', (req, res) => {
     }
 });
 
+router.delete('/', (req, res) => {
+    try{
+        fs.writeFileSync('queries.json', "");
+        console.log('querry array deleted');
+        res.status(200).send("query array saved");
+    }  catch (err) {
+        console.error(err);
+        res.status(500).send(err);
+    }
+});
+
 export default router;
